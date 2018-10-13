@@ -13,28 +13,28 @@ public class GreetingController {
 	private FifoQueue fq;
 	@Autowired
 	private BishBashBosh bbb;
-/*
-    @MessageMapping("/hello")
-    @SendTo("/topic/greetings")
-    public Greeting greeting(HelloMessage message) throws Exception {
-	// Add to FIFO
-
-	fq.put (message.getName());
-
-        Thread.sleep(1000); // simulated delay
-	StringBuilder sb = new StringBuilder();
-
-        return new Greeting("Hello, " + HtmlUtils.htmlEscape(fq.pop()) + "!");
-//        return new Greeting("Hello, " + HtmlUtils.htmlEscape(message.getName()) + "!");
-    }
-*/
 
     @MessageMapping("/hello")
     @SendTo("/topic/greetings")
-      public Greeting greeting(HelloMessage message) throws Exception {
+	public Greeting greeting(HelloMessage message) throws Exception {
 
-        return new Greeting("Hello, " + HtmlUtils.htmlEscape(message.getName()) + "!");
+    	System.out.println("NOT THIS");
+
+        return new Greeting(HtmlUtils.htmlEscape(message.getName()));
 	
-//	bbb.doStuff(message.getName());
+
+	}
+
+	@MessageMapping("/button")
+	@SendTo("/topic/button")
+	public Greeting button(HelloMessage message) throws Exception{
+
+		System.out.println("");
+		System.out.println("");
+		System.out.println("CAKE");
+		System.out.println("");
+		System.out.println("");
+
+		return new Greeting(HtmlUtils.htmlEscape(message.getName()));
 	}
 }

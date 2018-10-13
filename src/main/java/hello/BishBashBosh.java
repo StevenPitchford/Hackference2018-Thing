@@ -14,7 +14,7 @@ public class BishBashBosh
 //	@SendTo("/topic/greetings")
 	private Greeting broadcast( String s )
 	{
-		return new Greeting("Hello, " + HtmlUtils.htmlEscape(s) + "!");
+		return new Greeting(HtmlUtils.htmlEscape(s));
 	}
 
 }
