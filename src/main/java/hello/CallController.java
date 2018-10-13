@@ -23,8 +23,7 @@ public class CallController {
 //        return message.toString();
 //    }
     @GetMapping("/event")
-    public String event(@RequestBody Map<String, Object> payload) {
-        System.out.print(payload);
+    public String event() {
         return "";
     }
 
