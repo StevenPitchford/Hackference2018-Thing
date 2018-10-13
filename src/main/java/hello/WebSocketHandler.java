@@ -12,14 +12,13 @@ public class WebSocketHandler extends AbstractWebSocketHandler {
     @Override
     protected void handleTextMessage(WebSocketSession session, TextMessage message) throws IOException {
         System.out.println("New Text Message Received");
-        System.out.println("Werk");
-        session.sendMessage(message);
+        System.out.println(message.toString());
+        System.out.println(message.getPayload());
     }
 
     @Override
     protected void handleBinaryMessage(WebSocketSession session, BinaryMessage message) throws IOException {
         System.out.println("New Binary Message Received");
-        System.out.println("Werk");
-        session.sendMessage(message);
+
     }
 }
