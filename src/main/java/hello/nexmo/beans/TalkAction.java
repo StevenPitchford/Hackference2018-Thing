@@ -5,7 +5,7 @@ import java.io.Serializable;
 public class TalkAction implements Serializable
 {
 
-    private String action = "Talk";
+    private String action = "talk";
     private String text = "Welcome to ToadCall, the entertaining entertainment which seeks to entertain you in and entertaining manner, albeit entertainingly.";
 
     public String getAction() {
