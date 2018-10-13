@@ -1,0 +1,13 @@
+Starting point:
+
+https://spring.io/guides/gs/messaging-stomp-websocket/
+
+Aims - expand to use some cool tech to make something happen, perhaps using following:
+
+Deployment - Clever Cloud ?
+	https://www.clever-cloud.com/doc/java/java-maven/
+
+Auth - Auth 0 ?
+
+Messaging - Nexmo
+
