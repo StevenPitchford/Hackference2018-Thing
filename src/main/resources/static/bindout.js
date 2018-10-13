@@ -18,7 +18,18 @@ function connect() {
     stompClient.connect({}, function (frame) {
         setConnected(true);
         console.log('Connected: ' + frame);
+        stompClient.subscribe('/topic/greetings', function (greeting) {
+            parseMessage(greeting);
+        });
     });
+}
+
+function parseMessage(greeting)
+{
+	// TODO - more complex message notation
+	var tone = parseInt(JSON.parse(greeting.body).content()); 
+
+	playTone(tone);
 }
 
 function disconnect() {
@@ -29,17 +40,19 @@ function disconnect() {
     console.log("Disconnected");
 }
 
-function sendData( data ) {
-    stompClient.send("/app/hello", {}, JSON.stringify({'name': data }));
+function playTone( tone)
+{
+	showGreeting( "Frog Sings at pitch "+ tone )
+}
+
+function showGreeting(message) {
+    $("#greetings").append("<tr><td>" + message + "</td></tr>");
 }
 
 $(function () {
     $("form").on('submit', function (e) {
-        e.preventDefault(); 
+        e.preventDefault();
     });
-
     $( "#connect" ).click(function() { connect(); });
     $( "#disconnect" ).click(function() { disconnect(); });
-
-    $(".phone-button").click( function(){ sendData ($(this).val()) } );
 });
