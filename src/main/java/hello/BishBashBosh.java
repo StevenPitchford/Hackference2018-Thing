@@ -1,6 +1,6 @@
 package hello;
 
-import org.springframework.messaging.handler.annotation.SendTo;
+// import org.springframework.messaging.handler.annotation.SendTo;
 import org.springframework.web.util.HtmlUtils;
 
 public class BishBashBosh
@@ -11,7 +11,7 @@ public class BishBashBosh
 		broadcast( s );
 	}
 	
-	@SendTo("/topic/greetings")
+//	@SendTo("/topic/greetings")
 	private Greeting broadcast( String s )
 	{
 		return new Greeting("Hello, " + HtmlUtils.htmlEscape(s) + "!");
