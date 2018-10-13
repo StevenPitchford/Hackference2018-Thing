@@ -1,5 +1,8 @@
 var stompClient = null;
 
+const speeds = [-50, -35, -20, -5, 10, 25, 40, 55, 70, 85]
+const audio_sources = speeds.map( speed => new Audio("https://res.cloudinary.com/dhgfwvimc/video/upload/e_accelerate:" + speed + "/v1539462373/froggy/croak.mp3"))
+
 function setConnected(connected) {
     $("#connect").prop("disabled", connected);
     $("#disconnect").prop("disabled", !connected);
@@ -40,9 +43,14 @@ function disconnect() {
     console.log("Disconnected");
 }
 
-function playTone( tone)
+function playTone(tone)
 {
 	showGreeting( "Frog Sings at pitch "+ tone )
+    var audio = audio_sources[tone]
+
+    console.log(audio)
+
+    audio.play();
 }
 
 function showGreeting(message) {
@@ -50,6 +58,14 @@ function showGreeting(message) {
 }
 
 $(function () {
+    var frog = document.getElementById("frog")
+    var why = document.getElementById("why")
+
+
+    audio_sources.map( audio => audio.onplay = function(){ frog.style.opacity = 0; why.style.opacity = 1})
+    audio_sources.map( audio => audio.onended = function(){ frog.style.opacity = 1; why.style.opacity = 0})
+
+
     $("form").on('submit', function (e) {
         e.preventDefault();
     });
