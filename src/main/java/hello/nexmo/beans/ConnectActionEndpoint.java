@@ -33,7 +33,7 @@ import java.util.Map;
 public class ConnectActionEndpoint implements Serializable
 {
 	private String type = "websocket";
-	private String uri = "ws://toadcall.cleverapps.io/nexmo-socket2";
+	private String uri = "ws://toadcall.cleverapps.io/nexmo-socket";
 	private String contentType = "audio/l16;rate=8000";
 	private Map<String,String> headers = new HashMap<String,String>();
 

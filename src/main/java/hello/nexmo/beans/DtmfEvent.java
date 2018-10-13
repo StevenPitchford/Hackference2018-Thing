@@ -1,9 +1,11 @@
 package hello.nexmo.beans;
 
+import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
+
 import java.io.Serializable;
 
 // {"event":"websocket:dtmf","digit":"5","duration":260}
-
+@JsonIgnoreProperties(ignoreUnknown = true)
 public class DtmfEvent implements Serializable {
 
     private static String websocketEvent = "websocket:dtmf";

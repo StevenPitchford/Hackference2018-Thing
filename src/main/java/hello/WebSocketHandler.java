@@ -1,5 +1,7 @@
 package hello;
 
+import com.fasterxml.jackson.databind.ObjectMapper;
+import hello.nexmo.beans.DtmfEvent;
 import org.springframework.web.socket.BinaryMessage;
 import org.springframework.web.socket.TextMessage;
 import org.springframework.web.socket.WebSocketSession;
@@ -11,9 +13,18 @@ public class WebSocketHandler extends AbstractWebSocketHandler {
 
     @Override
     protected void handleTextMessage(WebSocketSession session, TextMessage message) throws IOException {
-        System.out.println("New Text Message Received");
-        System.out.println(message.toString());
-        System.out.println(message.getPayload());
+
+        String payload = message.getPayload();
+
+        ObjectMapper mapper = new ObjectMapper();
+        DtmfEvent dtmfEvent = mapper.readValue(payload, DtmfEvent.class);
+
+        if ( dtmfEvent.isWebsocketEvent() )
+        {
+            // We have a digit
+            int digit = dtmfEvent.parseDigit();
+            System.out.println("Number: "+digit);
+        }
     }
 
     @Override
