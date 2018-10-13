@@ -22,8 +22,9 @@ public class CallController {
 //    public String greeting(HelloMessage message) {
 //        return message.toString();
 //    }
-    @GetMapping("/event")
-    public String event() {
+    @PostMapping("/event")
+    public String event(@RequestBody Map<String, Object> payload) {
+        System.out.print(payload);
         return "";
     }
 
