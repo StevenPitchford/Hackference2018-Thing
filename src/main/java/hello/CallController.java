@@ -28,7 +28,7 @@ public class CallController {
         return "";
     }
 
-    @PostMapping(value = "/answer", produces = "application/json")
+    @GetMapping(value = "/answer", produces = "application/json")
     public String answer() throws JsonProcessingException {
         TalkNcco message = new TalkNcco("Hey, it's callum... Yes? Oh yeah! mhm? Just kidding, it's an answer machine beeeep");
 
