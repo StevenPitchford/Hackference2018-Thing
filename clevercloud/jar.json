@@ -4,6 +4,6 @@
     "goal": "package"
   },
   "deploy": {
-    "jarName": "target/thing0-0-0.jar"
+    "jarName": "target/gs-messaging-stomp-websocket-0.1.0.jar"
   }
 }
