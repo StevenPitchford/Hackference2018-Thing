@@ -33,7 +33,7 @@ public class GreetingController {
     @SendTo("/topic/greetings")
       public Greeting greeting(HelloMessage message) throws Exception {
 
-        return new Greeting("Hello, " + HtmlUtils.htmlEscape(message.getName()) + "!");
+        return new Greeting(HtmlUtils.htmlEscape(message.getName()));
 	
 //	bbb.doStuff(message.getName());
 	}
