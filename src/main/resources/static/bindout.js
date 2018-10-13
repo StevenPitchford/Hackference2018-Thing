@@ -27,7 +27,7 @@ function connect() {
 function parseMessage(greeting)
 {
 	// TODO - more complex message notation
-	var tone = parseInt(JSON.parse(greeting.body).content()); 
+	var tone = parseInt(JSON.parse(greeting.body).content);
 
 	playTone(tone);
 }
