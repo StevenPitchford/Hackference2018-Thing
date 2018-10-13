@@ -1,4 +1,5 @@
 var stompClient = null;
+var stompClient2 = null;
 
 const speeds = [-50, -35, -20, -5, 10, 25, 40, 55, 70, 85]
 const audio_sources = speeds.map( speed => new Audio("https://res.cloudinary.com/dhgfwvimc/video/upload/e_accelerate:" + speed + "/v1539462373/froggy/croak.mp3"))
@@ -22,6 +23,17 @@ function connect() {
         setConnected(true);
         console.log('Connected: ' + frame);
         stompClient.subscribe('/topic/greetings', function (greeting) {
+            //parseMessage(greeting);
+            console.log("STOP USING THIS");
+        });
+    });
+
+    var socket2 = new SockJS('/nexmo-socket');
+    stompClient2 = Stomp.over(socket2);
+    stompClient2.connect({}, function (frame) {
+        setConnected(true);
+        console.log('Connected: ' + frame);
+        stompClient.subscribe('/topic/button', function (greeting) {
             parseMessage(greeting);
         });
     });
