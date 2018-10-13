@@ -1,0 +1,9 @@
+{
+  "build": {
+    "type": "maven",
+    "goal": "package"
+  },
+  "deploy": {
+    "jarName": "target/gs-messaging-stomp-websocket-0.1.0.jar"
+  }
+}
