@@ -22,7 +22,7 @@ public class CallController {
 //    public String greeting(HelloMessage message) {
 //        return message.toString();
 //    }
-    @PostMapping("/event")
+    @GetMapping("/event")
     public String event(@RequestBody Map<String, Object> payload) {
         System.out.print(payload);
         return "";
