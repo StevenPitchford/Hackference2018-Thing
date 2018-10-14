@@ -16,6 +16,14 @@ public class WebSocketHandler extends AbstractWebSocketHandler {
 
         String payload = message.getPayload();
 
+        System.out.println("");
+        System.out.println("");
+        System.out.println("");
+        System.out.println(payload);
+        System.out.println("");
+        System.out.println("");
+        System.out.println("");
+
         ObjectMapper mapper = new ObjectMapper();
         DtmfEvent dtmfEvent = mapper.readValue(payload, DtmfEvent.class);
 
@@ -23,13 +31,12 @@ public class WebSocketHandler extends AbstractWebSocketHandler {
         {
             // We have a digit
             int digit = dtmfEvent.parseDigit();
-            System.out.println("Number: "+digit);
+            System.out.println("Number: " + digit);
         }
     }
 
     @Override
     protected void handleBinaryMessage(WebSocketSession session, BinaryMessage message) throws IOException {
-        System.out.println("New Binary Message Received");
-
+        //System.out.println("New Binary Message Received");
     }
 }
