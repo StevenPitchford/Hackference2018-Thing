@@ -16,7 +16,7 @@ import java.io.IOException;
 public class WebSocketHandler extends AbstractWebSocketHandler {
 
     @Autowired
-    private SimpMessagingTemplate template;
+    WebSocketConfig webSocketConfig;
 
 
     @Override
@@ -41,7 +41,7 @@ public class WebSocketHandler extends AbstractWebSocketHandler {
             int digit = dtmfEvent.parseDigit();
             System.out.println("Number: " + digit);
 
-            this.template.convertAndSend("/topic/toadcontrol", "{pitch:1}");
+            this.webSocketConfig.template.convertAndSend("/topic/toadcontrol", "{pitch:1}");
 
         }
     }
