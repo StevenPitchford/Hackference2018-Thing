@@ -3,7 +3,9 @@ package hello;
 import org.springframework.messaging.handler.annotation.SendTo;
 import hello.beans.ToadControl;
 import hello.beans.ToadControlActions;
+import org.springframework.stereotype.Component;
 
+@Component
 public class ToadWhisperer
 {
 

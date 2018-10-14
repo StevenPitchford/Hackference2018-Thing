@@ -22,9 +22,12 @@ function connect() {
     stompClient.connect({}, function (frame) {
         setConnected(true);
         console.log('Connected: ' + frame);
-        stompClient.subscribe('/topic/greetings', function (greeting) {
+        stompClient.subscribe('/topic/toadcontrol', function (greeting) {
             //parseMessage(greeting);
+            console.log( JSON.parse(greeting.body) );
+//        	var tone = parseInt(JSON.parse(greeting.body).pitch);
             console.log("STOP USING THIS");
+
         });
     });
 
