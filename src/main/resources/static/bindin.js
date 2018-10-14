@@ -30,7 +30,7 @@ function disconnect() {
 }
 
 function sendData( data ) {
-    stompClient.send("/app/hello", {}, JSON.stringify({'name': data }));
+    stompClient.send("/development", {}, JSON.stringify({'pitch': data }));
 }
 
 $(function () {

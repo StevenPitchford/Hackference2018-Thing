@@ -15,8 +15,8 @@ public class AppConfig {
 
 	@Bean
 	@Scope("singleton")
-	public BishBashBosh bishBashBosh() {
-        	return new BishBashBosh();
+	public ToadWhisperer toadWhisperer() {
+        	return new ToadWhisperer();
     }
 
 
