@@ -1,6 +1,8 @@
 package hello;
 
 import com.fasterxml.jackson.databind.ObjectMapper;
+import hello.Controllers.DevelopmentController;
+import hello.beans.DevelopmentMessage;
 import hello.nexmo.beans.DtmfEvent;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.messaging.simp.SimpMessagingTemplate;
@@ -17,7 +19,7 @@ import java.io.IOException;
 public class WebSocketHandler extends AbstractWebSocketHandler {
 
     @Autowired
-    SimpMessagingTemplate template;
+    DevelopmentController template;
 
 
     @Override
@@ -42,7 +44,13 @@ public class WebSocketHandler extends AbstractWebSocketHandler {
             int digit = dtmfEvent.parseDigit();
             System.out.println("Number: " + digit);
 
-            this.template.convertAndSend("/topic/toadcontrol", "{pitch:1}");
+            DevelopmentMessage cake = new DevelopmentMessage();
+
+            try {
+                this.template.processMessage(cake);
+            } catch (Exception e) {
+                e.printStackTrace();
+            }
 
         }
     }
