@@ -20,26 +20,23 @@ function connect() {
     var socket = new SockJS('/internal-nexmo-socket');
 
     stompClient = Stomp.over(socket);
+
     stompClient.connect({}, function (frame) {
         setConnected(true);
         console.log('Connected: ' + frame);
-
-    var socket2 = new SockJS('/nexmo-socket');
-    stompClient2 = Stomp.over(socket2);
-    stompClient2.connect({}, function (frame) {
-        setConnected(true);
-        console.log('Connected: ' + frame);
-        stompClient.subscribe('/topic/button', function (greeting) {
-            parseMessage(greeting);
+//        stompClient.subscribe('/topic/button', function (greeting) {
+//            parseMessage(greeting);
+//            });
         stompClient.subscribe('/topic/toadcontrol', function (toadControl) {
             parseMessage(toadControl);
         });
     });
-}
+};
 
 function parseMessage(toadControl)
 {
 	// TODO - more complex message notation
+	console.log(toadControl.body);
 	var pitch = parseInt(JSON.parse(toadControl.body).pitch);
 
 	playTone(pitch);

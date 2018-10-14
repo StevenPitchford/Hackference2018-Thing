@@ -16,6 +16,7 @@ public class DevelopmentController {
     public void processMessage( DevelopmentMessage message ) throws Exception
     {
         System.out.println("Cheese");
+        System.out.println("Pitch "+message.getPitch());
         if ( message.getPitch() > 0 ) {
             toadWhisperer.croakToad("toad", message.getPitch());
         }

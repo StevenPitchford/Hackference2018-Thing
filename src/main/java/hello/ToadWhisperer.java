@@ -31,6 +31,8 @@ public class ToadWhisperer
 		tc.setCommand(ToadControlActions.Croak);
 		tc.setToadID(id);
 		tc.setPitch(pitch);
+
+		System.out.println("Pitch Sending "+pitch);
 		broadcast( tc );
 	}
 
