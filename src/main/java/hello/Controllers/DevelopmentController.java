@@ -6,9 +6,11 @@ import hello.beans.ToadControl;
 import hello.beans.ToadControlActions;
 import org.springframework.messaging.handler.annotation.MessageMapping;
 import org.springframework.messaging.handler.annotation.SendTo;
+import org.springframework.stereotype.Component;
 import org.springframework.stereotype.Controller;
 import org.springframework.beans.factory.annotation.Autowired;
 
+@Component
 @Controller
 public class DevelopmentController {
 
