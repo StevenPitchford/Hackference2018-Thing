@@ -13,6 +13,7 @@ import java.io.IOException;
 
 public class WebSocketHandler extends AbstractWebSocketHandler {
 
+    @Autowired
     private SimpMessagingTemplate template;
 
 
