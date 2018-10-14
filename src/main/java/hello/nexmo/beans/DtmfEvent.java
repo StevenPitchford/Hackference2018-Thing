@@ -12,7 +12,6 @@ public class DtmfEvent implements Serializable {
 
     private String digit;
     private String event;
-    private String duration;
 
     public String getEvent() {
         return event;
@@ -28,14 +27,6 @@ public class DtmfEvent implements Serializable {
 
     public void setDigit(String digit) {
         this.digit = digit;
-    }
-
-    public String getDuration() {
-        return duration;
-    }
-
-    public void setDuration(String duration) {
-        this.duration = duration;
     }
 
     public boolean isWebsocketEvent()
