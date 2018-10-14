@@ -11,11 +11,7 @@ import org.springframework.web.socket.config.annotation.WebSocketMessageBrokerCo
 
 @Configuration
 @EnableWebSocketMessageBroker
-@Component
 public class WebSocketConfig implements WebSocketMessageBrokerConfigurer {
-
-    @Autowired
-    public SimpMessagingTemplate template;
 
     @Override
     public void configureMessageBroker(MessageBrokerRegistry config) {

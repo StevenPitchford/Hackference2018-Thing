@@ -5,6 +5,7 @@ import hello.nexmo.beans.DtmfEvent;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.messaging.simp.SimpMessagingTemplate;
 import org.springframework.stereotype.Component;
+import org.springframework.stereotype.Controller;
 import org.springframework.web.socket.BinaryMessage;
 import org.springframework.web.socket.TextMessage;
 import org.springframework.web.socket.WebSocketSession;
@@ -12,11 +13,11 @@ import org.springframework.web.socket.handler.AbstractWebSocketHandler;
 
 import java.io.IOException;
 
-@Component
+@Controller
 public class WebSocketHandler extends AbstractWebSocketHandler {
 
     @Autowired
-    WebSocketConfig webSocketConfig;
+    SimpMessagingTemplate template;
 
 
     @Override
@@ -41,7 +42,7 @@ public class WebSocketHandler extends AbstractWebSocketHandler {
             int digit = dtmfEvent.parseDigit();
             System.out.println("Number: " + digit);
 
-            this.webSocketConfig.template.convertAndSend("/topic/toadcontrol", "{pitch:1}");
+            this.template.convertAndSend("/topic/toadcontrol", "{pitch:1}");
 
         }
     }
