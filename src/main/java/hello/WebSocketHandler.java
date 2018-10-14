@@ -18,8 +18,13 @@ import java.io.IOException;
 @Controller
 public class WebSocketHandler extends AbstractWebSocketHandler {
 
-    @Autowired
+//    @Autowired
     DevelopmentController template;
+
+    @Autowired
+    public WebSocketHandler(DevelopmentController template) {
+        this.template = template;
+    }
 
 
     @Override
