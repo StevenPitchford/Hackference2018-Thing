@@ -7,9 +7,9 @@ import org.springframework.web.socket.config.annotation.WebSocketConfigurer;
 import org.springframework.web.socket.config.annotation.WebSocketHandlerRegistry;
 import org.springframework.web.socket.server.standard.ServletServerContainerFactoryBean;
 
-//@Configuration
-//@EnableWebSocket
-public class WebSocketConfig2 {}/*implements WebSocketConfigurer {
+@Configuration
+@EnableWebSocket
+public class WebSocketConfig2 implements WebSocketConfigurer {
 
     @Bean
     public ServletServerContainerFactoryBean createWebSocketContainer() {
@@ -20,7 +20,6 @@ public class WebSocketConfig2 {}/*implements WebSocketConfigurer {
 
     @Override
     public void registerWebSocketHandlers(WebSocketHandlerRegistry registry) {
-//        registry.addHandler(new WebSocketHandler(), "/nexmo-socket").setAllowedOrigins("*");
+        registry.addHandler(new WebSocketHandler(), "/nexmo-socket").setAllowedOrigins("*");
     }
 }
-*/

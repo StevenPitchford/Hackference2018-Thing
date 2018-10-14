@@ -3,6 +3,7 @@ package hello;
 import com.fasterxml.jackson.databind.ObjectMapper;
 import hello.nexmo.beans.DtmfEvent;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.messaging.simp.SimpMessagingTemplate;
 import org.springframework.web.socket.BinaryMessage;
 import org.springframework.web.socket.TextMessage;
 import org.springframework.web.socket.WebSocketSession;
@@ -12,8 +13,7 @@ import java.io.IOException;
 
 public class WebSocketHandler extends AbstractWebSocketHandler {
 
-    @Autowired
-    private ToadWhisperer toadWhisperer;
+    private SimpMessagingTemplate template;
 
 
     @Override
@@ -37,6 +37,8 @@ public class WebSocketHandler extends AbstractWebSocketHandler {
             // We have a digit
             int digit = dtmfEvent.parseDigit();
             System.out.println("Number: " + digit);
+
+            this.template.convertAndSend("/topic/toadcontrol", "{pitch:1}");
 
         }
     }
