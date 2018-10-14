@@ -1,11 +1,10 @@
 package hello;
 
 import org.springframework.messaging.handler.annotation.SendTo;
-import hello.hello.beans.ToadControl;
-import hello.hello.beans.ToadControlActions;
-import org.springframework.web.util.HtmlUtils;
+import hello.beans.ToadControl;
+import hello.beans.ToadControlActions;
 
-public class BishBashBosh
+public class ToadWhisperer
 {
 
 	public void addToad( String id )

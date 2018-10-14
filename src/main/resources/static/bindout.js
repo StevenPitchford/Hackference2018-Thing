@@ -23,7 +23,7 @@ function connect() {
     stompClient.connect({}, function (frame) {
         setConnected(true);
         console.log('Connected: ' + frame);
-        stompClient.subscribe('/topic/button', function (toadControl) {
+        stompClient.subscribe('/topic/toadcontrol', function (toadControl) {
             parseMessage(toadControl);
         });
     });
