@@ -38,7 +38,6 @@ public class WebSocketHandler extends AbstractWebSocketHandler {
             int digit = dtmfEvent.parseDigit();
             System.out.println("Number: " + digit);
 
-            toadWhisperer.croakToad("toad",digit);
         }
     }
 

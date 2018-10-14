@@ -4,8 +4,9 @@ import org.springframework.messaging.handler.annotation.SendTo;
 import hello.beans.ToadControl;
 import hello.beans.ToadControlActions;
 import org.springframework.stereotype.Component;
+import org.springframework.stereotype.Controller;
 
-@Component
+@Controller
 public class ToadWhisperer
 {
 
@@ -25,18 +26,8 @@ public class ToadWhisperer
 		broadcast( tc );
 	}
 
-	public void croakToad( String id, Integer pitch )
-	{
-		ToadControl tc = new ToadControl();
-		tc.setCommand(ToadControlActions.Croak);
-		tc.setToadID(id);
-		tc.setPitch(pitch);
 
-		System.out.println("Pitch Sending "+pitch);
-		broadcast( tc );
-	}
 
-	@SendTo("/topic/toadcontrol")
 	private ToadControl broadcast( ToadControl tc )
 	{
 		return tc;
