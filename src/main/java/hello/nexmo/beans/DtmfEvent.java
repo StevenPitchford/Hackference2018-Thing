@@ -36,7 +36,7 @@ public class DtmfEvent implements Serializable {
 
     public int parseDigit()
     {
-        Integer i = Integer.getInteger(digit);
+        Integer i = Integer.parseInt(digit);
         return i;
     }
 
