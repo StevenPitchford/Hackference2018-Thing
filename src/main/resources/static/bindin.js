@@ -13,7 +13,7 @@ function setConnected(connected) {
 }
 
 function connect() {
-    var socket = new SockJS('/gs-guide-websocket');
+    var socket = new SockJS('/topic/button');
     stompClient = Stomp.over(socket);
     stompClient.connect({}, function (frame) {
         setConnected(true);
@@ -30,7 +30,7 @@ function disconnect() {
 }
 
 function sendData( data ) {
-    stompClient.send("/app/hello", {}, JSON.stringify({'name': data }));
+    stompClient.send("/app/button", {}, JSON.stringify({'name': data }));
 }
 
 $(function () {
