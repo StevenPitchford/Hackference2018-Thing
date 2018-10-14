@@ -17,7 +17,7 @@ function setConnected(connected) {
 
 function connect() {
 
-    var socket = new SockJS('/nexmo-socket');
+    var socket = new SockJS('/internal-nexmo-socket');
 
     stompClient = Stomp.over(socket);
     stompClient.connect({}, function (frame) {

@@ -14,20 +14,9 @@ public class GreetingController {
 	@Autowired
 	private BishBashBosh bbb;
 
-    @MessageMapping("/hello")
-    @SendTo("/topic/greetings")
-	public Greeting greeting(HelloMessage message) throws Exception {
-
-    	System.out.println("NOT THIS");
-
-        return new Greeting(HtmlUtils.htmlEscape(message.getName()));
-	
-
-	}
-
 	@MessageMapping("/button")
 	@SendTo("/topic/button")
-	public Greeting button(HelloMessage message) throws Exception{
+	public Greeting button(WebDial dial) throws Exception{
 
 		System.out.println("");
 		System.out.println("");
@@ -35,6 +24,6 @@ public class GreetingController {
 		System.out.println("");
 		System.out.println("");
 
-		return new Greeting(HtmlUtils.htmlEscape(message.getName()));
+		return new Greeting(HtmlUtils.htmlEscape(String.valueOf(dial.pitch)));
 	}
 }
