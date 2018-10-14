@@ -18,8 +18,7 @@ public class WebSocketConfig implements WebSocketMessageBrokerConfigurer {
 
     @Override
     public void registerStompEndpoints(StompEndpointRegistry registry) {
-        registry.addEndpoint("/gs-guide-websocket").withSockJS();
-        //registry.addEndpoint("/nexmo-socket").withSockJS();
+        registry.addEndpoint("/internal-nexmo-socket").withSockJS();
     }
 
 }
